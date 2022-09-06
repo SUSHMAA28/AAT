@@ -1,0 +1,120 @@
+ #include<stdio.h>
+ #include<conio.h>
+ #include<math.h>
+ #define pi 3.142
+
+ void main()
+ {
+ float r1, r2, c1, c2, f;
+ int choice,choice2;
+ printf("1. Ladder Network  Oscillator\t2. Wein Bridge Oscillator\n Enter choice:");
+ scanf("%d", &choice);
+ switch(choice)
+ {
+   case 1:  while(1)
+            {
+            printf("1.Frequency\t2.Resistance\t3.Capacitance\t4.Exit\nEnter choice:");
+            scanf("%d",&choice2);
+            switch(choice2)
+            {
+            case 1:  printf("Enter the value of resistance:");
+                     scanf("%f", &r1);
+                     printf("Enter the value of capacitance:"); 
+                     scanf("%f", &c1);
+                     f=1/(2*pi*r1*c1*sqrt(6));
+                     printf("The value of frequency in ladder Network Oscillator:%fn", f);
+                     break;
+            case 2:  printf("Enter the value of capacitance:");
+                     scanf("%f", &c1);
+                     printf("Enter the value of frequency:");
+                     scanf("%f", &f);
+                     r1=1/(2*pi*f*c1*sqrt(6));
+                     printf("The value of resistance in ladder Network Oscillator:%f\n", r1);
+                     break;
+            case 3:  printf("Enter the value of frequency:");
+                     scanf("%f", &f);
+                     printf("Enter the value of resistance:");
+                     scanf("%f", &r1);
+                     c1=1/(2*pi*r1*f*sqrt(6));
+                     printf("The value of capacitance in ladder Network Oscillator:%f\n", c1);
+                     break;
+            case 4:  break;
+            default:printf("Invalid Choice");
+            }
+            if(choice2>=4)
+                break;
+            }
+            break;
+   case 2:  while(1)
+            {
+            printf("1.Frequency\t2.Resistance1\t3.Capacitance1\t4.Resistance2\t5.Capacitance2\t6.Exit\n");
+            printf("Enter choice:");
+            scanf("%d",&choice2);
+            switch(choice2)
+            {
+            case 1:  printf("enter the value of resistance 1:");
+                     scanf("%f", &r1);
+                     printf("enter the value of capacitance 1: ");
+                     scanf("%f", &c1);
+                     printf("enter the value of resistance 2:");
+                     scanf("%f", &r2);
+                     printf("enter the value of capacitance 2:");
+                     scanf("%f", &c2);
+                     f=1/(2*pi*sqrt(r1*r2*c1*c2));
+                     printf("The value of frequency in Wein Bridge Oscillator:%f\n",f);
+                     break;
+            case 2:  printf("enter the value of frequency");
+                     scanf("%f", &f);
+                     printf("enter the value of capacitance 1: ");
+                     scanf("%f", &c1);
+                     printf("enter the value of resistance 2:");
+                     scanf("%f", &r2);
+                     printf("enter the value of capacitance 2:");
+                     scanf("%f", &c2);
+                     r1=(1/(2*pi*f*sqrt(r2*c1*c2)))*(1/(2*pi*f*sqrt(r2*c1*c2)));
+                     printf("The value of resistance 1 in Wein Bridge Oscillator:%f\n",f);
+                     break;
+            case 3:  printf("enter the value of frequency");
+                     scanf("%f", &f);
+                     printf("enter the value of resistance 1: ");
+                     scanf("%f", &r1);
+                     printf("enter the value of resistance 2:");
+                     scanf("%f", &r2);
+                     printf("enter the value of capacitance 2:");
+                     scanf("%f", &c2);
+                     c1=(1/(2*pi*f*sqrt(r2*r1*c2)))*(1/(2*pi*f*sqrt(r2*r1*c2)));
+                     printf("The value of capacitance 1 in Wein Bridge Oscillator:%f\n",f);
+                     break;
+            case 4:  printf("enter the value of frequency");
+                     scanf("%f", &f);
+                     printf("enter the value of capacitance 1: ");
+                     scanf("%f", &c1);
+                     printf("enter the value of resistance 1:");
+                     scanf("%f", &r1);
+                     printf("enter the value of capacitance 2:");
+                     scanf("%f", &c2);
+                     r2=(1/(2*pi*f*sqrt(r1*c1*c2)))*(1/(2*pi*f*sqrt(r1*c1*c2)));
+                     printf("The value of resistance 2 in Wein Bridge Oscillator:%f\n",f);
+                     break;
+            case 5:  printf("enter the value of frequency");
+                     scanf("%f", &f);
+                     printf("enter the value of resistance 1: ");
+                     scanf("%f", &r1);
+                     printf("enter the value of resistance 2:");
+                     scanf("%f", &r2);
+                     printf("enter the value of capacitance 1:");
+                     scanf("%f", &c1);
+                     c2=(1/(2*pi*f*sqrt(r2*r1*c1)))*(1/(2*pi*f*sqrt(r2*r1*c1)));
+                     printf("The value of capacitance 2 in Wein Bridge Oscillator:%f\n",f);
+                     break;
+            case 6:  break;
+            default:printf("Invalid Choice");
+            }
+            if(choice>=6)
+                break;
+            }
+            break;
+   default:printf("Invalid Choice");
+ }
+ getch();
+ }
